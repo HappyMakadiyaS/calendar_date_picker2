@@ -104,6 +104,10 @@ class _CalendarDatePicker2State extends State<CalendarDatePicker2> {
     if (widget.config.calendarViewMode != oldWidget.config.calendarViewMode) {
       _mode = widget.config.calendarViewMode;
     }
+    final initialDate = widget.value.isNotEmpty && widget.value[0] != null
+        ? DateTime(widget.value[0]!.year, widget.value[0]!.month)
+        : DateUtils.dateOnly(DateTime.now());
+    _currentDisplayedMonthDate = DateTime(initialDate.year, initialDate.month);
     _selectedDates = widget.value.toList();
   }
 
