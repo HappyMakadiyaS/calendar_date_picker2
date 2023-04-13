@@ -371,6 +371,15 @@ class _MyHomePageState extends State<MyHomePage> {
     final config = CalendarDatePicker2Config(
       calendarType: CalendarDatePicker2Type.range,
       selectedDayHighlightColor: Colors.teal[800],
+      selectedRangeHighlightColor: Colors.teal[800],
+      selectedDayTextStyle: const TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
+      selectedRangeDayTextStyle: const TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
       weekdayLabelTextStyle: const TextStyle(
         color: Colors.black87,
         fontWeight: FontWeight.bold,

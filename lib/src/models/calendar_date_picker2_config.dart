@@ -60,6 +60,7 @@ class CalendarDatePicker2Config {
     this.centerAlignModePicker,
     this.customModePickerIcon,
     this.modePickerTextHandler,
+    this.selectedRangeDayTextStyle,
   })  : calendarType = calendarType ?? CalendarDatePicker2Type.single,
         firstDate = DateUtils.dateOnly(firstDate ?? DateTime(1970)),
         lastDate =
@@ -113,6 +114,9 @@ class CalendarDatePicker2Config {
 
   /// Custom text style for selected calendar day(s)
   final TextStyle? selectedDayTextStyle;
+
+  /// Custom text style for selected range calendar day(s)
+  final TextStyle? selectedRangeDayTextStyle;
 
   /// The highlight color for selected day(s)
   final Color? selectedDayHighlightColor;

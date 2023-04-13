@@ -1062,6 +1062,18 @@ class _DayPickerState extends State<_DayPicker> {
           customDayTextStyle = widget.config.selectedDayTextStyle;
         }
 
+        if (widget.selectedDates.length == 2) {
+          final startDate = DateUtils.dateOnly(widget.selectedDates[0]);
+          final endDate = DateUtils.dateOnly(widget.selectedDates[1]);
+          final isDateInRange =
+              !(dayToBuild.isBefore(startDate) || dayToBuild.isAfter(endDate));
+          final isStartDateSameToEndDate =
+              DateUtils.isSameDay(startDate, endDate);
+          if (isDateInRange && !isStartDateSameToEndDate) {
+            customDayTextStyle = widget.config.selectedRangeDayTextStyle;
+          }
+        }
+
         final dayTextStyle =
             customDayTextStyle ?? dayStyle.apply(color: dayColor);
 
@@ -1225,7 +1237,7 @@ class _DayPickerGridDelegate extends SliverGridDelegate {
       constraints.viewportMainAxisExtent / (_maxDayPickerRowCount + 1),
     );
     return SliverGridRegularTileLayout(
-      childCrossAxisExtent: tileWidth,
+      childCrossAxisExtent: tileWidth + 1,
       childMainAxisExtent: tileHeight,
       crossAxisCount: columnCount,
       crossAxisStride: tileWidth,
