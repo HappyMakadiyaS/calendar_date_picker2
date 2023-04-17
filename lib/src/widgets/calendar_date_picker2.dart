@@ -1253,7 +1253,7 @@ class _DayPickerGridDelegate extends SliverGridDelegate {
       constraints.viewportMainAxisExtent / (_maxDayPickerRowCount + 1),
     );
     return SliverGridRegularTileLayout(
-      childCrossAxisExtent: tileWidth,
+      childCrossAxisExtent: tileWidth.ceilToDouble(),
       childMainAxisExtent: tileHeight,
       crossAxisCount: columnCount,
       crossAxisStride: tileWidth,
